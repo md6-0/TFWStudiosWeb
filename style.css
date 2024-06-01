@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'Cabinet'; 
+    src: url('./fonts/Cabinet.ttf'); 
+}
+
+*{
+    font-family: 'Cabinet', sans-serif;
+    margin: 0;
+    padding: 0;
+    letter-spacing: .07rem;
+    line-height: 2rem;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(#724d46 0%, #916c60 100%);
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    height: 100vh;
+    width: 20vw;
+    backdrop-filter: blur( 3px );
+    border-right: 2px solid rgba( 255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
+    transition: width .5s ease-in-out;
+}
+    nav > h1 {
+        writing-mode: sideways-lr;
+        color: white;
+        font-size: 7rem;
+        letter-spacing: .6rem;
+    }
+
+
+.content{
+    margin: 10vh 0 0 25vw;
+}
+
+    .sections{
+        margin-bottom: 96px;
+        color: white;
+    }
+
+    .sections > h2{
+        font-size: 2rem;
+        margin-bottom: 32px;
+        border-bottom: 2px solid rgba( 255, 255, 255, 0.18);
+    }
+    .sections > h3 {
+        margin-bottom: 8px;
+    }
+    .sections h2 ~ p {
+        width: 70%;
+    }
+    .sections h3 ~ p {
+        margin-bottom: 16px;
+        width: 70%;
+    }
+
+        .slider{
+            padding-top: 8px;
+            overflow: visible;
+            display: block ruby;
+        }
+            .app-card{
+                height: 450px;
+                width: 300px;
+                margin-right: 64px;
+                background-color: rebeccapurple;
+                border-radius: 20px;
+            }
+
+
+@media only screen and (max-width: 576px) {
+    nav{
+        width: 100vw;
+        height: 10vh;
+        text-align: left;
+        display: flex;
+        justify-content: start;
+        border-bottom: 2px solid rgba( 255, 255, 255, 0.18);
+    }
+    nav > h1 {
+        writing-mode: horizontal-tb;
+        color: white;
+        font-size: 2rem;
+        letter-spacing: .6rem;
+        width: 90vw;
+        margin: 0 auto;
+    }      
+    
+    .content{
+        width: 100vw;
+        margin: 0;
+        margin-top: 15vh;
+    }
+    .sections{
+        margin-bottom: 64px;
+    }
+    .slider{
+        overflow: scroll;
+    }
+    .app-card{
+        margin: 0 16px 0 16px;
+    }
+
+    .sections h2, .sections h3, .sections h2 ~ p, .sections h3 ~ p {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .sections > h2{
+        font-size: 1.8rem;
+        margin-bottom: 32px;
+    }
+    .sections > h3 {
+        margin-bottom: 8px;
+    }
+    .sections h3 ~ p {
+        margin-bottom: 16px;
+    }
+
+}
