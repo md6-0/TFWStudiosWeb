@@ -13,7 +13,15 @@
 
 body{
     min-height: 100vh;
-    background: linear-gradient(#724d46 0%, #916c60 100%);
+    background: linear-gradient(135deg, #623E38 -100%, #724D46 0% ,#916c60 200%);
+    background-size: 200% 200%;
+    animation: animated-gradient 60s linear infinite;
+}
+
+@keyframes animated-gradient {
+    0%{background-position:10% 0%}
+    50%{background-position:90% 100%}
+    100%{background-position:01% 0%}
 }
 
 nav{
