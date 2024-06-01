@@ -11,7 +11,10 @@
     letter-spacing: .07rem;
     line-height: 2rem;
 }
-
+a{
+    text-decoration: none;
+    color: white;
+}
 h1, h2, h3{
     font-family: 'Cabinet', sans-serif;
 }
@@ -88,11 +91,20 @@ nav{
             display: block ruby;
         }
             .app-card{
+                transition: box-shadow .5s ease-in-out;
                 height: 450px;
                 width: 300px;
                 margin-right: 64px;
-                background-color: rebeccapurple;
+                backdrop-filter: blur( 3px );
+                border-right: 2px solid rgba( 255, 255, 255, 0.18);
+                box-shadow: 0 4px 16px 0 rgba(255, 255, 255, 0.1);
                 border-radius: 20px;
+            }
+
+            .app-card:hover{
+                transition: box-shadow .5s ease-in-out;
+                box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.2);
+
             }
 
 
