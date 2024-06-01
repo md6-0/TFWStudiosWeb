@@ -1,27 +1,37 @@
 @font-face {
     font-family: 'Cabinet'; 
     src: url('./fonts/Cabinet.ttf'); 
+    font-family: 'Satoshi'; 
+    src: url('./fonts/Satoshi.ttf'); 
 }
 
 *{
-    font-family: 'Cabinet', sans-serif;
     margin: 0;
     padding: 0;
     letter-spacing: .07rem;
     line-height: 2rem;
 }
 
+h1, h2, h3{
+    font-family: 'Cabinet', sans-serif;
+}
+
+p{
+    font-size: 1.15rem;
+    font-family: 'Satoshi', sans-serif;
+}
+
 body{
     min-height: 100vh;
-    background: linear-gradient(135deg, #623E38 -100%, #724D46 0% ,#916c60 200%);
+    background: linear-gradient(135deg, #623E38 -50%, #724D46 0% ,#916c60 150%);
     background-size: 200% 200%;
     animation: animated-gradient 60s linear infinite;
 }
 
 @keyframes animated-gradient {
     0%{background-position:10% 0%}
-    50%{background-position:90% 100%}
-    100%{background-position:01% 0%}
+    50%{background-position:100% 100%}
+    100%{background-position:10% 0%}
 }
 
 nav{
@@ -59,6 +69,7 @@ nav{
         font-size: 2rem;
         margin-bottom: 32px;
         border-bottom: 2px solid rgba( 255, 255, 255, 0.18);
+        padding-bottom: 6px;
     }
     .sections > h3 {
         margin-bottom: 8px;
@@ -67,7 +78,7 @@ nav{
         width: 70%;
     }
     .sections h3 ~ p {
-        margin-bottom: 16px;
+        margin-bottom: 24px;
         width: 70%;
     }
 
