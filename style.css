@@ -1,44 +1,64 @@
-@font-face {
-    font-family: 'Cabinet'; 
-    src: url('./fonts/Cabinet.ttf'); 
-    font-family: 'Satoshi'; 
-    src: url('./fonts/Satoshi.ttf'); 
+/* Variables */
+:root {
+    --primary-color: #623E38;
+    --secondary-color: #916c60;
+    --gradient-middle: #724D46;
+    --border-color: rgba(255, 255, 255, 0.18);
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --card-spacing: 32px;
+    --border-width: 2px;
 }
 
-*{
+/* Font faces */
+@font-face {
+    font-family: 'Cabinet';
+    src: url('./fonts/Cabinet.ttf');
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('./fonts/Satoshi.ttf');
+}
+
+/* Base styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    letter-spacing: .07rem;
+    letter-spacing: 0.07rem;
     line-height: 2rem;
 }
-a{
+
+a {
     text-decoration: none;
     color: white;
 }
-h1, h2, h3, h4{
+
+h1, h2, h3, h4 {
     font-family: 'Cabinet', sans-serif;
 }
 
-p{
+p {
     font-size: 1.15rem;
     font-family: 'Satoshi', sans-serif;
 }
 
-body{
+body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #623E38 -50%, #724D46 0% ,#916c60 150%);
+    background: linear-gradient(135deg, var(--primary-color) -50%, var(--gradient-middle) 0%, var(--secondary-color) 150%);
     background-size: 200% 200%;
     animation: animated-gradient 60s linear infinite;
 }
 
+/* Animations */
 @keyframes animated-gradient {
-    0%{background-position:10% 0%}
-    50%{background-position:100% 100%}
-    100%{background-position:10% 0%}
+    0% { background-position: 10% 0% }
+    50% { background-position: 100% 100% }
+    100% { background-position: 10% 0% }
 }
 
-nav{
+/* Navigation */
+nav {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,135 +67,150 @@ nav{
     top: 0;
     height: 100vh;
     width: 20vw;
-    backdrop-filter: blur( 3px );
-    border-right: 2px solid rgba( 255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
-    transition: width .5s ease-in-out;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    border-right: var(--border-width) solid var(--border-color);
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    transition: width 0.5s ease-in-out;
 }
-    nav > h1 {
-        writing-mode: sideways-lr;
-        color: white;
-        font-size: 7rem;
-        letter-spacing: .6rem;
-    }
 
+nav > h1 {
+    writing-mode: sideways-lr;
+    color: white;
+    font-size: 7rem;
+    letter-spacing: 0.6rem;
+}
 
-.content{
+/* Content sections */
+.content {
     margin: 10vh 0 0 25vw;
 }
 
-    .sections{
-        margin-bottom: 96px;
-        color: white;
-    }
+.sections {
+    margin-bottom: 96px;
+    color: white;
+}
 
-    .sections > h2{
-        font-size: 2rem;
-        margin-bottom: 32px;
-        border-bottom: 2px solid rgba( 255, 255, 255, 0.18);
-        padding-bottom: 6px;
-    }
-    .sections > h3 {
-        margin-bottom: 8px;
-    }
-    .sections h2 ~ p {
-        width: 70%;
-    }
-    .sections h3 ~ p {
-        margin-bottom: 24px;
-        width: 70%;
-    }
+.sections > h2 {
+    font-size: 2rem;
+    margin-bottom: var(--card-spacing);
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding-bottom: 6px;
+}
 
-        .slider{
-            padding-top: 8px;
-            overflow: auto;
-            display: block ruby;
-        }
-            .app-card{
-                cursor: pointer;
-                transition: box-shadow .5s ease-in-out;
-                height: 450px;
-                width: 300px;
-                margin: 0 40px 8px 0;
-                backdrop-filter: blur( 3px );
-                border-right: 2px solid rgba( 255, 255, 255, 0.18);
-                box-shadow: 0 4px 16px 0 rgba(177, 174, 172, 0.1);
-                border-radius: 40px;
-                background-size: contain;
-                background-repeat: no-repeat;
-            }
-            .app-card:hover{
-                transition: box-shadow .5s ease-in-out;
-                box-shadow: 0 4px 16px 0 rgba(213, 212, 211, 0.2);
-            }
-            .app-card-aparcapp{
-                background-image: url(./Images/WhiteTheme.png);
-                background-size: 102%;
-            }
-            .card-overlay{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                display: flex;
-                align-items: end;
-                border-radius: 36px;
-                background-image: linear-gradient(transparent 0%, rgb(145, 108, 96, .9) 100%);
-            }
-                .card-overlay > h4 {
-                    margin: 0 0 24px 32px;
-                    font-size: 1.3rem;
-                    font-weight: 100;
-                }
+.sections > h3 {
+    margin-bottom: 8px;
+}
 
+.sections h2 ~ p,
+.sections h3 ~ p {
+    width: 70%;
+    margin-bottom: 24px;
+}
 
+/* Cards and slider */
+.slider {
+    padding-top: 8px;
+    overflow: auto;
+    display: block ruby;
+}
 
+.app-card {
+    cursor: pointer;
+    height: 450px;
+    width: 300px;
+    margin: 0 40px 8px 0;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    border-right: var(--border-width) solid var(--border-color);
+    box-shadow: 0 4px 16px 0 rgba(177, 174, 172, 0.1);
+    border-radius: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: box-shadow 0.5s ease-in-out;
+}
+
+.app-card:hover {
+    box-shadow: 0 4px 16px 0 rgba(213, 212, 211, 0.2);
+}
+
+.app-card-aparcapp {
+    background-image: url(./Images/WhiteTheme.png);
+    background-size: 102%;
+}
+
+.card-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    align-items: end;
+    border-radius: 36px;
+    background-image: linear-gradient(transparent 0%, rgba(145, 108, 96, 0.9) 100%);
+}
+
+.card-overlay > h4 {
+    margin: 0 0 24px 32px;
+    font-size: 1.3rem;
+    font-weight: 100;
+}
+
+/* Media queries */
 @media only screen and (max-width: 576px) {
-    ::-webkit-scrollbar { display: none; }
-    nav{
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav {
         width: 100vw;
         height: 10vh;
         text-align: left;
         display: flex;
         justify-content: start;
-        border-bottom: 2px solid rgba( 255, 255, 255, 0.18);
+        border-bottom: var(--border-width) solid var(--border-color);
         border-right: none;
     }
+
     nav > h1 {
         writing-mode: horizontal-tb;
-        color: white;
         font-size: 2rem;
-        letter-spacing: .6rem;
+        letter-spacing: 0.6rem;
         width: 90vw;
         margin: 0 auto;
-    }      
-    
-    .content{
-        width: 100vw;
-        margin: 0;
-        margin-top: 15vh;
-    }
-    .sections{
-        margin-bottom: 64px;
-    }
-    .app-card{
-        margin: 0 16px 0 16px;
     }
 
-    .sections h2, .sections h3, .sections h2 ~ p, .sections h3 ~ p {
+    .content {
+        width: 100vw;
+        margin: 15vh 0 0 0;
+    }
+
+    .sections {
+        margin-bottom: 64px;
+    }
+
+    .app-card {
+        margin: 0 16px;
+    }
+
+    .sections h2,
+    .sections h3,
+    .sections h2 ~ p,
+    .sections h3 ~ p {
         width: 90%;
         margin: 0 auto;
     }
 
-    .sections > h2{
+    .sections > h2 {
         font-size: 1.8rem;
-        margin-bottom: 32px;
+        margin-bottom: var(--card-spacing);
     }
+
     .sections > h3 {
         margin-bottom: 8px;
     }
+
     .sections h3 ~ p {
         margin-bottom: 16px;
     }
-
 }
