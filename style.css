@@ -88,7 +88,7 @@ nav{
 
         .slider{
             padding-top: 8px;
-            overflow: scroll;
+            overflow: auto;
             display: block ruby;
         }
             .app-card{
